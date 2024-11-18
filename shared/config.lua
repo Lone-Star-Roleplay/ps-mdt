@@ -1,10 +1,10 @@
 Config = Config or {}
 
 Config.UsingPsHousing = false
-Config.UsingDefaultQBApartments = true
+Config.UsingDefaultQBApartments = false
 Config.OnlyShowOnDuty = true
 
--- RECOMMENDED Fivemerr Images. DOES NOT EXPIRE. 
+-- RECOMMENDED Fivemerr Images. DOES NOT EXPIRE.
 -- YOU NEED TO SET THIS UP FOLLOW INSTRUCTIONS BELOW.
 -- Documents: https://docs.fivemerr.com/integrations/mdt-scripts/ps-mdt
 Config.FivemerrMugShot = true
@@ -22,12 +22,12 @@ Config.BillVariation = true
 
 -- If set to false (default) = The fine amount is just being removed from the player's bank account
 -- If set to true = The fine amount is beeing added to the society account after being removed from the player's bank account
-Config.QBBankingUse = false
+Config.QBBankingUse = true
 
 -- Set up your inventory to automatically retrieve images when a weapon is registered at a weapon shop or self-registered.
--- If you're utilizing lj-inventory's latest version from GitHub, no further modifications are necessary. 
+-- If you're utilizing lj-inventory's latest version from GitHub, no further modifications are necessary.
 -- However, if you're using a different inventory system, please refer to the "Inventory Edit | Automatic Add Weapons with images" section in ps-mdt's README.
-Config.InventoryForWeaponsImages = "lj-inventory"
+Config.InventoryForWeaponsImages = "ox_inventory"
 
 -- Only compatible with ox_inventory
 Config.RegisterWeaponsAutomatically = true
@@ -35,8 +35,8 @@ Config.RegisterWeaponsAutomatically = true
 -- Set to true to register all weapons that are added via AddItem in ox_inventory
 Config.RegisterCreatedWeapons = true
 
--- "LegacyFuel", "lj-fuel", "ps-fuel"
-Config.Fuel = "ps-fuel"
+-- "ps-fuel", "lj-fuel", "ps-fuel"
+Config.Fuel = "ox_fuel"
 
 -- Google Docs Link
 Config.sopLink = {
@@ -61,7 +61,7 @@ Config.RosterLink = {
     ['sasp'] = '',
     ['doc'] = '',
     ['lssd'] = '',
-    ['sapr'] = '',	
+    ['sapr'] = '',
 }
 
 Config.PoliceJobs = {
@@ -86,346 +86,434 @@ Config.DojJobs = {
     ['judge'] = true
 }
 
--- This is a workaround solution because the qb-menu present in qb-policejob fills in an impound location and sends it to the event. 
+-- This is a workaround solution because the qb-menu present in qb-policejob fills in an impound location and sends it to the event.
 -- If the impound locations are modified in qb-policejob, the changes must also be implemented here to ensure consistency.
 
 Config.ImpoundLocations = {
-    [1] = vector4(436.68, -1007.42, 27.32, 180.0),
-    [2] = vector4(-436.14, 5982.63, 31.34, 136.0),
+    --vector4(436.68, -1007.42, 27.32, 180.0),
+    --vector4(-436.14, 5982.63, 31.34, 136.0),
+    --vec4(401.41, -1633.79, 29.29, 140.79)
 }
 
--- Support for Wraith ARS 2X. 
+-- Support for Wraith ARS 2X.
 
-Config.UseWolfknightRadar = false
-Config.WolfknightNotifyTime = 5000 -- How long the notification displays for in milliseconds (30000 = 30 seconds)
-Config.PlateScanForDriversLicense = false -- If true, plate scanner will check if the owner of the scanned vehicle has a drivers license
+Config.UseWolfknightRadar = true
+Config.WolfknightNotifyTime = 5000       -- How long the notification displays for in milliseconds (30000 = 30 seconds)
+Config.PlateScanForDriversLicense = true -- If true, plate scanner will check if the owner of the scanned vehicle has a drivers license
 
--- IMPORTANT: To avoid making excessive database queries, modify this config to true 'CONFIG.use_sonorancad = true' setting in the configuration file located at 'wk_wars2x/config.lua'. 
+-- IMPORTANT: To avoid making excessive database queries, modify this config to true 'CONFIG.use_sonorancad = true' setting in the configuration file located at 'wk_wars2x/config.lua'.
 -- Enabling this setting will limit plate checks to only those vehicles that have been used by a player.
 
 Config.LogPerms = {
-	['ambulance'] = {
-		[4] = true,
-	},
-	['police'] = {
-		[4] = true,
-	},
+    ['ambulance'] = {
+        [4] = true,
+    },
+    ['police'] = {
+        [4] = true,
+    },
     ['bcso'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sast'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sasp'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sapr'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['doc'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['lssd'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
 }
 
 Config.RemoveIncidentPerms = {
-	['ambulance'] = {
-		[4] = true,
-	},
-	['police'] = {
-		[4] = true,
-	},
+    ['ambulance'] = {
+        [4] = true,
+    },
+    ['police'] = {
+        [4] = true,
+    },
     ['bcso'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sast'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sasp'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sapr'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['doc'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['lssd'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
 }
 
 Config.RemoveReportPerms = {
-	['ambulance'] = {
-		[4] = true,
-	},
-	['police'] = {
-		[4] = true,
-	},
+    ['ambulance'] = {
+        [4] = true,
+    },
+    ['police'] = {
+        [4] = true,
+    },
     ['bcso'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sast'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sasp'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sapr'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['doc'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['lssd'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
 }
 
 Config.RemoveWeaponsPerms = {
-	['ambulance'] = {
-		[4] = true,
-	},
-	['police'] = {
-		[4] = true,
-	},
+    ['ambulance'] = {
+        [4] = true,
+    },
+    ['police'] = {
+        [4] = true,
+    },
     ['bcso'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sast'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sasp'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['sapr'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['doc'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
     ['lssd'] = {
-		[4] = true,
-	},
+        [4] = true,
+    },
 }
 
 Config.PenalCodeTitles = {
-    [1] = 'OFFENSES AGAINST PERSONS',
-    [2] = 'OFFENSES INVOLVING THEFT',
-    [3] = 'OFFENSES INVOLVING FRAUD',
-    [4] = 'OFFENSES INVOLVING DAMAGE TO PROPERTY',
-    [5] = 'OFFENSES AGAINST PUBLIC ADMINISTRATION',
-    [6] = 'OFFENSES AGAINST PUBLIC ORDER',
-    [7] = 'OFFENSES AGAINST HEALTH AND MORALS',
-    [8] = 'OFFENSES AGAINST PUBLIC SAFETY',
-    [9] = 'OFFENSES INVOLVING THE OPERATION OF A VEHICLE',
-    [10] = 'OFFENSES INVOLVING THE WELL-BEING OF WILDLIFE',
+    [1] = 'Title 2. General Principles of Criminal Responsibility',
+    [2] = 'Title 4. Inchoate Offenses',
+    [3] = 'Title 5. Offenses Against the Person',
+    [4] = 'Title 6. Offenses Against the Family',
+    [5] = 'Title 7. Offenses Against Property',
+    [6] = 'Title 8. Offenses Against Public Administration',
+    [7] = 'Title 9. Offenss Against Public Order and Decency',
+    [8] = 'Title 10. Offenses Against Public Health, Safety, and Morals',
+    [9] = 'Title 11. Organized Crime',
+    [10] = 'Title 12. Terrorism',
+    [11] = 'Traffic Code',
 }
 
 Config.PenalCode = {
-    [1] = {
-        [1] = {title = 'Simple Assault', class = 'Misdemeanor', id = 'P.C. 1001', months = 7, fine = 500, color = 'green', description = 'When a person intentionally or knowingly causes physical contact with another (without a weapon)'},
-        [2] = {title = 'Assault', class = 'Misdemeanor', id = 'P.C. 1002', months = 15, fine = 850, color = 'orange', description = 'If a person intentionally or knowingly causes injury to another (without a weapon)'},
-        [3] = {title = 'Aggravated Assault', class = 'Felony', id = 'P.C. 1003', months = 20, fine = 1250, color = 'orange', description = 'When a person unintentionally, and recklessly causes bodily injury to another as a result of a confrontation AND causes bodily injury'},
-        [4] = {title = 'Assault with a Deadly Weapon', class = 'Felony', id = 'P.C. 1004', months = 30, fine = 3750, color = 'red', description = 'When a person intentionally, knowingly, or recklessly causes bodily injury to another person AND either causes serious bodily injury or uses or exhibits a deadly weapon'},
-        [5] = {title = 'Involuntary Manslaughter', class = 'Felony', id = 'P.C. 1005', months = 60, fine = 7500, color = 'red', description = 'When a person unintentionally and recklessly causes the death of another'},
-        [6] = {title = 'Vehicular Manslaughter', class = 'Felony', id = 'P.C. 1006', months = 75, fine = 7500, color = 'red', description = 'When a person unintentionally and recklessly causes the death of anther with a vehicle'},
-        [7] = {title = 'Attempted Murder of a Civilian', class = 'Felony', id = 'P.C. 1007', months = 50, fine = 7500, color = 'red', description = 'When a non-government person intentionally attacks another with the intent to kill'},
-        [8] = {title = 'Second Degree Murder', class = 'Felony', id = 'P.C. 1008', months = 100, fine = 15000, color = 'red', description = 'Any intentional killing that is not premeditated or planned. A situation in which the killer intends only to inflict serious bodily harm.'},
-        [9] = {title = 'Accessory to Second Degree Murder', class = 'Felony', id = 'P.C. 1009', months = 50, fine = 5000, color = 'red', description = 'Being present and or participating in the act of parent charge'},
-        [10] = {title = 'First Degree Murder', class = 'Felony', id = 'P.C. 1010', months = 0, fine = 0, color = 'red', description = 'Any intentional killing that is willful and premeditated with malice.'},
-        [11] = {title = 'Accessory to First Degree Murder', class = 'Felony', id = 'P.C. 1011', months = 0, fine = 0, color = 'red', description = 'Being present and or participating in the act of parent charge'},
-        [12] = {title = 'Murder of a Public Servant or Peace Officer', class = 'Felony', id = 'P.C. 1012', months = 0, fine = 0, color = 'red', description = 'Any intentional killing that is done to a government employee'},
-        [13] = {title = 'Attempted Murder of a Public Servant or Peace Officer', class = 'Felony', id = 'P.C. 1013', months = 65, fine = 10000, color = 'red', description = 'Any attacks that are done to a government employee with the intent to cause death'},
-        [14] = {title = 'Accessory to the Murder of a Public Servant or Peace Officer', class = 'Felony', id = 'P.C. 1014', months = 0, fine = 0, color = 'red', description = 'Being present and or participating in the act of parent charge'},
-        [15] = {title = 'Unlawful Imprisonment', class = 'Misdemeanor', id = 'P.C. 1015', months = 10, fine = 600, color = 'green', description = 'The act of taking another against their will and holding them for an extended period of time'},
-        [16] = {title = 'Kidnapping', class = 'Felony', id = 'P.C. 1016', months = 15, fine = 900, color = 'orange', description = 'The act of taking another against their will for a short period of time'},
-        [17] = {title = 'Accessory to Kidnapping', class = 'Felony', id = 'P.C. 1017', months = 7, fine = 450, color = 'orange', description = 'Being present and or participating in the act of parent charge'},
-        [18] = {title = 'Attempted Kidnapping', class = 'Felony', id = 'P.C. 1018', months = 10, fine = 450, color = 'orange', description = 'The act of trying to take someone against their will'},
-        [19] = {title = 'Hostage Taking', class = 'Felony', id = 'P.C. 1019', months = 20, fine = 1200, color = 'orange', description = 'The act of taking another against their will for personal gain'},
-        [20] = {title = 'Accessory to Hostage Taking', class = 'Felony', id = 'P.C. 1020', months = 10, fine = 600, color = 'orange', description = 'Being present and or participating in the act of parent charge'},
-        [21] = {title = 'Unlawful Imprisonment of a Public Servant or Peace Officer.', class = 'Felony', id = 'P.C. 1021', months = 25, fine = 4000, color = 'orange', description = 'The act of taking a government employee against their will for an extended period of time'},
-        [22] = {title = 'Criminal Threats', class = 'Misdemeanor', id = 'P.C. 1022', months = 5, fine = 500, color = 'orange', description = 'The act of stating the intent to commit a crime against another'},
-        [23] = {title = 'Reckless Endangerment', class = 'Misdemeanor', id = 'P.C. 1023', months = 10, fine = 1000, color = 'orange', description = 'The act of disregarding safety of another which may place another in danger of death or bodily injury'},
-        [24] = {title = 'Gang Related Shooting', class = 'Felony', id = 'P.C. 1024', months = 30, fine = 2500, color = 'red', description = 'The act in which a firearm is discharged in relation to gang activity'},
-        [25] = {title = 'Cannibalism', class = 'Felony', id = 'P.C. 1025', months = 0, fine = 0, color = 'red', description = 'The act in which a persons consumes the flesh of another willingly'},
-        [26] = {title = 'Torture', class = 'Felony', id = 'P.C. 1026', months = 40, fine = 4500, color = 'red', description = 'The act of causing harm to another to extract informaion and or for self enjoyment'},
+    [1] = { -- Title 2.
+        [1] = { title = 'Aiding and Abetting', class = 'Felony', id = 'TPC 7.02', months = 12, fine = 1000, color = 'red', description = 'Being present and or participating in the commission of a crime.' },
     },
+    -- Title 4. Inchoate Offenses
     [2] = {
-        [1] = {title = 'Petty Theft', class = 'Infraction', id = 'P.C. 2001', months = 0, fine = 250, color = 'green', description = 'The theft of property below $50 amount'},
-        [2] = {title = 'Grand Theft', class = 'Misdemeanor', id = 'P.C. 2002', months = 10, fine = 600, color = 'green', description = 'Theft of property above $700'},
-        [3] = {title = 'Grand Theft Auto A', class = 'Felony', id = 'P.C. 2003', months = 15, fine = 900, color = 'green', description = 'The act of stealing a vehicle that belongs to someone else without permission'},
-        [4] = {title = 'Grand Theft Auto B', class = 'Felony', id = 'P.C. 2004', months = 35, fine = 3500, color = 'green', description = 'The act of stealing a vehicle that belongs to someone else without permission while armed'},
-        [5] = {title = 'Carjacking', class = 'Felony', id = 'P.C. 2005', months = 30, fine = 2000, color = 'orange', description = 'The act of someone forcefully taking a vehicle from its occupants'},
-        [6] = {title = 'Burglary', class = 'Misdemeanor', id = 'P.C. 2006', months = 10, fine = 500, color = 'green', description = 'The act of entering into a building illegally with intent to commit a crime, especially theft.'},
-        [7] = {title = 'Robbery', class = 'Felony', id = 'P.C. 2007', months = 25, fine = 2000, color = 'green', description = 'The action of taking property unlawfully from a person or place by force or threat of force.'},
-        [8] = {title = 'Accessory to Robbery', class = 'Felony', id = 'P.C. 2008', months = 12, fine = 1000, color = 'green', description = 'Being present and or participating in the act of parent charge'},
-        [9] = {title = 'Attempted Robbery', class = 'Felony', id = 'P.C. 2009', months = 20, fine = 1000, color = 'green', description = 'The action of attempting property unlawfully from a person or place by force or threat of force.'},
-        [10] = {title = 'Armed Robbery', class = 'Felony', id = 'P.C. 2010', months = 30, fine = 3000, color = 'orange', description = 'The action of taking property unlawfully from a person or place by force or threat of force while armed.'},
-        [11] = {title = 'Accessory to Armed Robbery', class = 'Felony', id = 'P.C. 2011', months = 15, fine = 1500, color = 'orange', description = 'Being present and or participating in the act of parent charge'},
-        [12] = {title = 'Attempted Armed Robbery', class = 'Felony', id = 'P.C. 2012', months = 25, fine = 1500, color = 'orange', description = 'The action of attempting property unlawfully from a person or place by force or threat of force while armed.'},
-        [13] = {title = 'Grand Larceny', class = 'Felony', id = 'P.C. 2013', months = 45, fine = 7500, color = 'orange', description = 'Theft of personal property having a value above a legally specified amount.'},
-        [14] = {title = 'Leaving Without Paying', class = 'Infraction', id = 'P.C. 2014', months = 0, fine = 500, color = 'green', description = 'The act of leaving an establishment without paying for provided service'},
-        [15] = {title = 'Possession of Nonlegal Currency', class = 'Misdemeanor', id = 'P.C. 2015', months = 10, fine = 750, color = 'green', description = 'Being in possession of stolen currency'},
-        [16] = {title = 'Possession of Government-Issued Items', class = 'Misdemeanor', id = 'P.C. 2016', months = 15, fine = 1000, color = 'green', description = 'Being in possession of Items only acquireable by government employees'},
-        [17] = {title = 'Possession of Items Used in the Commission of a Crime', class = 'Misdemeanor', id = 'P.C. 2017', months = 10, fine = 500, color = 'green', description = 'Being in possession of Items that were previously used to commit crimes'},
-        [18] = {title = 'Sale of Items Used in the Commission of a Crime', class = 'Felony', id = 'P.C. 2018', months = 15, fine = 1000, color = 'orange', description = 'The act of selling items that were previously used to commit crimes'},
-        [19] = {title = 'Theft of an Aircraft', class = 'Felony', id = 'P.C. 2019', months = 20, fine = 1000, color = 'green', description = 'The act of stealing an aircraft'},
+        [1] = { title = 'Criminal Attempt', class = 'Felony', id = 'P.C. 15.01', months = 12, fine = 1000, color = 'red', description = 'When a person, with specific intent to commit an offense, does an act amounting to more than mere preparation that tends but fails to effect the commission of the offense.' },
+        [2] = { title = 'Criminal Conspiracy', class = 'Felony', id = 'P.C. 15.02', months = 24, fine = 2000, color = 'orange', description = 'When two or more persons conspire to commit an offense, and one of them does an act in furtherance of the conspiracy.' },
+        [3] = { title = 'Criminal Solicitation', class = 'Felony', id = 'P.C. 15.03', months = 36, fine = 5000, color = 'red', description = 'When a person requests, commands, or attempts to induce another to engage in specific conduct that constitutes an offense.' },
+        [4] = { title = 'Unlawful Use of Criminal Instrument or Mechanical Security Device', class = 'Felony', id = 'P.C. 16.01', months = 60, fine = 10000, color = 'red', description = 'When a person uses or possesses a criminal instrument with the intent to commit an offense or possesses a mechanical security device knowing that it is intended to be used for criminal activity.' },
     },
+    -- Title 5. Offenses Against the Person
     [3] = {
-        [1] = {title = 'Impersonating', class = 'Misdemeanor', id = 'P.C. 3001', months = 15, fine = 1250, color = 'green', description = 'The action of falsely identifying as another person to deceive'},
-        [2] = {title = 'Impersonating a Peace Officer or Public Servant', class = 'Felony', id = 'P.C. 3002', months = 25, fine = 2750, color = 'green', description = 'The action of falsely identifying as a government employee to deceive'},
-        [3] = {title = 'Impersonating a Judge', class = 'Felony', id = 'P.C. 3003', months = 0, fine = 0, color = 'green', description = 'The action of falsely identifying as a Judge to deceive'},
-        [4] = {title = 'Possession of Stolen Identification', class = 'Misdemeanor', id = 'P.C. 3004', months = 10, fine = 750, color = 'green', description = 'To have another persons Identification without consent'},
-        [5] = {title = 'Possession of Stolen Government Identification', class = 'Misdemeanor', id = 'P.C. 3005', months = 20, fine = 2000, color = 'green', description = 'To have the identification of a government employee without consent'},
-        [6] = {title = 'Extortion', class = 'Felony', id = 'P.C. 3006', months = 20, fine = 900, color = 'orange', description = 'To threaten or cause harm to a person or property for financial gain'},
-        [7] = {title = 'Fraud', class = 'Misdemeanor', id = 'P.C. 3007', months = 10, fine = 450, color = 'green', description = 'To deceive another for financial gain'},
-        [8] = {title = 'Forgery', class = 'Misdemeanor', id = 'P.C. 3008', months = 15, fine = 750, color = 'green', description = 'To falsify legal documentation for personal gain'},
-        [9] = {title = 'Money Laundering', class = 'Felony', id = 'P.C. 3009', months = 0, fine = 0, color = 'red', description = 'The processing stolen money for legal currency'},
+        [1] = { title = 'Murder', class = 'Felony', id = 'P.C. 19.02', months = 120, fine = 50000, color = 'red', description = 'When a person intentionally or knowingly causes the death of an individual, or causes serious bodily injury that results in death.' },
+        [2] = { title = 'Capital Murder', class = 'Felony', id = 'P.C. 19.03', months = 120, fine = 50000, color = 'red', description = 'When a person commits murder under circumstances that make the offense punishable by death or life imprisonment, such as killing a peace officer or during the commission of another felony.' },
+        [3] = { title = 'Manslaughter', class = 'Felony', id = 'P.C. 19.04', months = 80, fine = 25000, color = 'red', description = 'When a person recklessly causes the death of an individual.' },
+        [4] = { title = 'Criminally Negligent Homicide', class = 'Felony', id = 'P.C. 19.05', months = 60, fine = 15000, color = 'orange', description = 'When a person causes the death of an individual through criminal negligence.' },
+        [5] = { title = 'Unlawful Restraint', class = 'Misdemeanor', id = 'P.C. 20.02', months = 12, fine = 1000, color = 'orange', description = 'When a person intentionally or knowingly restrains another person without consent.' },
+        [6] = { title = 'Kidnapping', class = 'Felony', id = 'P.C. 20.03', months = 60, fine = 15000, color = 'red', description = 'When a person intentionally or knowingly abducts another person.' },
+        [7] = { title = 'Aggravated Kidnapping', class = 'Felony', id = 'P.C. 20.04', months = 100, fine = 30000, color = 'red', description = 'When a person intentionally or knowingly abducts another person with the intent to hold them for ransom, use them as a shield or hostage, facilitate a felony, or inflict bodily injury or abuse.' },
+        [8] = { title = 'Trafficking of Persons', class = 'Felony', id = 'P.C. 20A.02', months = 120, fine = 50000, color = 'red', description = 'When a person knowingly traffics another person with the intent for forced labor, services, or any form of exploitation, including sexual exploitation.' },
+        [9] = { title = 'Homosexual Conduct', class = 'Misdemeanor', id = 'P.C. 21.06', months = 0, fine = 0, color = 'gray', description = 'This law, which criminalized consensual sexual conduct between adults of the same sex, was ruled unconstitutional by the Supreme Court in 2003 (Lawrence v. Texas).' },
+        [10] = { title = 'Assault', class = 'Misdemeanor', id = 'P.C. 22.01', months = 24, fine = 4000, color = 'orange', description = 'When a person intentionally, knowingly, or recklessly causes bodily injury to another, or threatens another with imminent bodily injury.' },
+        [11] = { title = 'Aggravated Assault', class = 'Felony', id = 'P.C. 22.02', months = 60, fine = 15000, color = 'red', description = 'When a person commits assault and causes serious bodily injury to another or uses or exhibits a deadly weapon during the commission of the assault.' },
+        [12] = { title = 'Deadly Conduct', class = 'Misdemeanor', id = 'P.C. 22.05', months = 24, fine = 5000, color = 'orange', description = 'When a person recklessly engages in conduct that places another in imminent danger of serious bodily injury or discharges a firearm at or in the direction of an individual, vehicle, or building.' },
+        [13] = { title = 'Terroristic Threat', class = 'Misdemeanor', id = 'P.C. 22.07', months = 24, fine = 5000, color = 'orange', description = 'When a person threatens to commit violence against any person or property with the intent to cause a reaction of any type by an official or volunteer agency.' },
     },
+    -- Title 6. Offenses Against the Family
     [4] = {
-        [1] = {title = 'Trespassing', class = 'Misdemeanor', id = 'P.C. 4001', months = 10, fine = 450, color = 'green', description = 'For a person to be within the bounds of a location of which they are not legally allowed'},
-        [2] = {title = 'Felony Trespassing', class = 'Felony', id = 'P.C. 4002', months = 15, fine = 1500, color = 'green', description = 'For a person to have repeatedly entered the bounds of a location of which they are knowingly not legally allowed'},
-        [3] = {title = 'Arson', class = 'Felony', id = 'P.C. 4003', months = 15, fine = 1500, color = 'orange', description = 'The use if fire and accelerants to will and maliciously destroy, harm or cause death to a person or property'},
-        [4] = {title = 'Vandalism', class = 'Infraction', id = 'P.C. 4004', months = 0, fine = 300, color = 'green', description = 'The willful destruction of property'},
-        [5] = {title = 'Vandalism of Government Property', class = 'Felony', id = 'P.C. 4005', months = 20, fine = 1500, color = 'green', description = 'The willful destruction of government property'},
-        [6] = {title = 'Littering', class = 'Infraction', id = 'P.C. 4006', months = 0, fine = 200, color = 'green', description = 'The willful discard of refuse into to open and not in designated bin'},
+        [1] = { title = 'Bigamy', class = 'Felony', id = 'P.C. 25.01', months = 24, fine = 2000, color = 'red', description = 'When a person marries or attempts to marry another person while still being legally married to someone else.' },
     },
+    -- Title 7. Offenses Against Property
     [5] = {
-        [1] = {title = 'Bribery of a Government Official', class = 'Felony', id = 'P.C. 5001', months = 20, fine = 3500, color = 'green', description = 'the use of money, favors and or property to gain favor with a government official'},
-        [2] = {title = 'Anti-Mask Law', class = 'Infraction', id = 'P.C. 5002', months = 0, fine = 750, color = 'green', description = 'Wearing a mask in a prohibited zone'},
-        [3] = {title = 'Possession of Contraband in a Government Facility', class = 'Felony', id = 'P.C. 5003', months = 25, fine = 1000, color = 'green', description = 'Being in possession of items that are illegal while within a government building'},
-        [4] = {title = 'Criminal Possession of Stolen Property', class = 'Misdemeanor', id = 'P.C. 5004', months = 10, fine = 500, color = 'green', description = 'Being in possession of items stolen knowingly or not'},
-        [5] = {title = 'Escaping', class = 'Felony', id = 'P.C. 5005', months = 10, fine = 450, color = 'green', description = 'The action of willful and knowingly leaving custody while legally being arrest, detained or in jail'},
-        [6] = {title = 'Jailbreak', class = 'Felony', id = 'P.C. 5006', months = 30, fine = 2500, color = 'orange', description = 'The action of leaving state custody from a state or county detention facility'},
-        [7] = {title = 'Accessory to Jailbreak', class = 'Felony', id = 'P.C. 5007', months = 25, fine = 2000, color = 'orange', description = 'Being present and or participating in the act of parent charge'},
-        [8] = {title = 'Attempted Jailbreak', class = 'Felony', id = 'P.C. 5008', months = 20, fine = 1500, color = 'orange', description = 'The willful and intentional attempted escape from a state or county detention facility'},
-        [9] = {title = 'Perjury', class = 'Felony', id = 'P.C. 5009', months = 0, fine = 0, color = 'green', description = 'The action of stating falsities while legally bound to speak the truth'},
-        [10] = {title = 'Violation of a Restraining Order', class = 'Felony', id = 'P.C. 5010', months = 20, fine = 2250, color = 'green', description = 'The willful and knowing infringement upon court ordered protective documentation'},
-        [11] = {title = 'Embezzlement', class = 'Felony', id = 'P.C. 5011', months = 45, fine = 10000, color = 'green', description = 'The willful and knowingly movement of funds from non personal bank accounts to personal bank accounts for personal gain'},
-        [12] = {title = 'Unlawful Practice', class = 'Felony', id = 'P.C. 5012', months = 15, fine = 1500, color = 'orange', description = 'The action of performing a service without proper legal licensing and approval'},
-        [13] = {title = 'Misuse of Emergency Systems', class = 'Infraction', id = 'P.C. 5013', months = 0, fine = 600, color = 'orange', description = 'Use of government emergency equipment for its non-intended purpose'},
-        [14] = {title = 'Conspiracy', class = 'Misdemeanor', id = 'P.C. 5014', months = 10, fine = 450, color = 'green', description = 'The act of planning a crime but not yet commiting the crime'},
-        [15] = {title = 'Violating a Court Order', class = 'Misdemeanor', id = 'P.C. 5015', months = 0, fine = 0, color = 'orange', description = 'The infringement of court ordered documentation'},
-        [16] = {title = 'Failure to Appear', class = 'Misdemeanor', id = 'P.C. 5016', months = 0, fine = 0, color = 'orange', description = 'When someone who is legally bound to appear in court does not do so'},
-        [17] = {title = 'Contempt of Court', class = 'Felony', id = 'P.C. 5017', months = 0, fine = 0, color = 'orange', description = 'The disruption of court proceedings in a courtroom while it is in session (judicial decision)'},
-        [18] = {title = 'Resisting Arrest', class = 'Misdemeanor', id = 'P.C. 5018', months = 5, fine = 300, color = 'orange', description = 'The act of not allowing peace officers to take you into custody willingly'},
+        [1] = { title = 'Arson', class = 'Felony', id = 'P.C. 28.02', months = 120, fine = 50000, color = 'red', description = 'When a person intentionally starts a fire or causes an explosion with intent to destroy or damage property, or with intent to harm another person.' },
+        [2] = { title = 'Criminal Mischief', class = 'Misdemeanor', id = 'P.C. 28.03', months = 12, fine = 3000, color = 'orange', description = 'When a person intentionally or knowingly damages or destroys another person’s property without their consent.' },
+        [3] = { title = 'Reckless Damage or Destruction', class = 'Misdemeanor', id = 'P.C. 28.04', months = 6, fine = 1500, color = 'orange', description = 'When a person recklessly damages or destroys property belonging to another person.' },
+        [4] = { title = 'Interference with Railroad Property', class = 'Misdemeanor', id = 'P.C. 28.07', months = 12, fine = 3000, color = 'red', description = 'When a person intentionally or knowingly damages or destroys railroad property or interferes with the operation of a railroad vehicle or track.' },
+        [5] = { title = 'Graffiti', class = 'Misdemeanor', id = 'P.C. 28.08', months = 12, fine = 3000, color = 'orange', description = 'When a person intentionally or knowingly makes markings, including inscriptions or drawings, on the tangible property of another without the property owner’s consent.' },
+        [6] = { title = 'Damaging Critical Infrastructure Facility', class = 'Felony', id = 'P.C. 28.09', months = 60, fine = 15000, color = 'red', description = 'When a person intentionally or knowingly damages or destroys a critical infrastructure facility, such as power plants, water treatment facilities, or transportation systems.' },
+        [7] = { title = 'Robbery', class = 'Felony', id = 'P.C. 29.02', months = 60, fine = 15000, color = 'red', description = 'When a person commits theft and, in the course of committing theft, uses or threatens to use force against any person.' },
+        [8] = { title = 'Aggravated Robbery', class = 'Felony', id = 'P.C. 29.03', months = 120, fine = 50000, color = 'red', description = 'When a person commits robbery and uses or exhibits a deadly weapon, causes serious bodily injury, or threatens to cause serious bodily injury to another.' },
+        [9] = { title = 'Burglary', class = 'Felony', id = 'P.C. 30.02', months = 60, fine = 15000, color = 'red', description = 'When a person enters a building or habitation without the owner’s consent with the intent to commit theft, assault, or another felony.' },
+        [10] = { title = 'Burglary of Vehicles', class = 'Misdemeanor', id = 'P.C. 30.04', months = 12, fine = 3000, color = 'red', description = 'When a person enters a vehicle or any part of a vehicle without the owner’s consent with the intent to commit theft or another felony.' },
+        [11] = { title = 'Criminal Trespass', class = 'Misdemeanor', id = 'P.C. 30.05', months = 6, fine = 1500, color = 'orange', description = 'When a person enters or remains on property without the effective consent of the owner or fails to leave the property after being told to do so.' },
+        [12] = { title = 'Trespass by License Holder with a Concealed Handgun', class = 'Misdemeanor', id = 'P.C. 30.06', months = 6, fine = 1500, color = 'orange', description = 'When a person with a valid concealed handgun license enters or remains on property where the owner has given notice that firearms are prohibited.' },
+        [13] = { title = 'Trespass by License Holder with an Openly Carried Handgun', class = 'Misdemeanor', id = 'P.C. 30.07', months = 6, fine = 1500, color = 'orange', description = 'When a person with a valid handgun license openly carries a handgun and enters or remains on property where the owner has given notice that firearms are prohibited.' },
+        [14] = { title = 'Theft', class = 'Misdemeanor', id = 'P.C. 31.03', months = 24, fine = 5000, color = 'orange', description = 'When a person unlawfully appropriates property with the intent to deprive the owner of that property.' },
+        [15] = { title = 'Theft of Service', class = 'Misdemeanor', id = 'P.C. 31.04', months = 12, fine = 3000, color = 'red', description = 'When a person intentionally or knowingly obtains a service by deception, threat, or coercion, or by making a false statement or representation.' },
+        [16] = { title = 'Theft of Trade Secrets', class = 'Felony', id = 'P.C. 31.05', months = 60, fine = 15000, color = 'darkblue', description = 'When a person unlawfully appropriates a trade secret with the intent to benefit themselves or another, or to harm the owner of the trade secret.' },
+        [17] = { title = 'Unauthorized Use of a Vehicle', class = 'Misdemeanor', id = 'P.C. 31.07', months = 12, fine = 3000, color = 'orange', description = 'When a person intentionally or knowingly operates a vehicle without the effective consent of the owner.' },
+        [18] = { title = 'Unauthorized Possession of Catalytic Converter', class = 'Felony', id = 'P.C. 31.21', months = 24, fine = 5000, color = 'red', description = 'When a person possesses a catalytic converter that they know is stolen or acquired by theft.' },
+        [19] = { title = 'Forgery', class = 'Felony', id = 'P.C. 32.21', months = 60, fine = 15000, color = 'red', description = 'When a person forges a writing with intent to defraud or harm another, or to facilitate a fraud or harm.' },
+        [20] = { title = 'Criminal Simulation', class = 'Felony', id = 'P.C. 32.22', months = 36, fine = 10000, color = 'red', description = 'When a person, with intent to defraud, makes or uses a simulated document or object that appears to have value or effect.' },
+        [21] = { title = 'Deceptive Business Practices', class = 'Misdemeanor', id = 'P.C. 32.42', months = 12, fine = 5000, color = 'red', description = 'When a person engages in a scheme to deceive or mislead others in connection with a business transaction.' },
+        [22] = { title = 'Commercial Bribery', class = 'Felony', id = 'P.C. 32.43', months = 60, fine = 15000, color = 'red', description = 'When a person offers, confers, or agrees to confer any benefit to another with intent to influence their conduct in relation to a transaction or business.' },
+        [23] = { title = 'Rigging Publicly Exhibited Contest', class = 'Felony', id = 'P.C. 32.44', months = 60, fine = 15000, color = 'darkblue', description = 'When a person, for the purpose of securing a benefit or advantage, influences the outcome of a publicly exhibited contest by deception or fraudulent means.' },
+        [24] = { title = 'Online Impersonation', class = 'Misdemeanor', id = 'P.C. 33.07', months = 12, fine = 3000, color = 'orange', description = 'When a person uses the name or persona of another to harm, defraud, or intimidate that person or to solicit a response from another person.' },
+        [25] = { title = 'Unauthorized Use of Telecommunications Service', class = 'Misdemeanor', id = 'P.C. 33A.02', months = 12, fine = 3000, color = 'red', description = 'When a person intentionally or knowingly uses telecommunications services without the consent of the service provider or authorized person.' },
+        [26] = { title = 'Money Laundering', class = 'Felony', id = 'P.C. 34.02', months = 120, fine = 50000, color = 'red', description = 'When a person knowingly engages in a financial transaction involving property derived from criminal activity with the intent to conceal the source of the property.' },
+        [27] = { title = 'Impersonating', class = 'Misdemeanor', id = 'TPC 32.51', months = 15, fine = 1250, color = 'orange', description = 'Falsely identifying as another person to deceive' },
+        [28] = { title = 'Impersonating a Peace Officer', class = 'Felony', id = 'TPC 37.11', months = 25, fine = 2750, color = 'red', description = 'Falsely identifying as a government employee to deceive' },
+        [29] = { title = 'Impersonating a Judge', class = 'Felony', id = 'TPC 37.11', months = 0, fine = 0, color = 'red', description = 'Falsely identifying as a Judge to deceive' },
+        [30] = { title = 'Possession of Stolen Identification', class = 'Misdemeanor', id = 'TPC 32.51', months = 10, fine = 750, color = 'orange', description = 'To have another person\'s identification without consent' },
+        [31] = { title = 'Possession of Stolen Government Identification', class = 'Misdemeanor', id = 'TPC 32.51', months = 20, fine = 2000, color = 'orange', description = 'To have the identification of a government employee without consent' },
+        [32] = { title = 'Extortion', class = 'Felony', id = 'TPC 36.06', months = 20, fine = 900, color = 'orange', description = 'To threaten or cause harm to a person or property for financial gain' },
+        [33] = { title = 'Fraud', class = 'Misdemeanor', id = 'TPC 32.46', months = 10, fine = 450, color = 'orange', description = 'To deceive another for financial gain' },
+        [34] = { title = 'Forgery', class = 'Misdemeanor', id = 'TPC 32.21', months = 15, fine = 750, color = 'orange', description = 'To falsify legal documentation for personal gain' },
+        [35] = { title = 'Money Laundering', class = 'Felony', id = 'TPC 34.01', months = 0, fine = 0, color = 'red', description = 'The processing of stolen money into legal currency' },
     },
+    -- Title 8. Offenses Against Public Administration
     [6] = {
-        [1] = {title = 'Disobeying a Peace Officer', class = 'infraction', id = 'P.C. 6001', months = 0, fine = 750, color = 'green', description = 'The willful disregard of a lawful order'},
-        [2] = {title = 'Disorderly Conduct', class = 'Infraction', id = 'P.C. 6002', months = 0, fine = 250, color = 'green', description = 'Acting in a manner that creates a hazardous or physically offensive condition by any act which serves no legitimate purpose of the actor. '},
-        [3] = {title = 'Disturbing the Peace', class = 'infraction', id = 'P.C. 6003', months = 0, fine = 350, color = 'green', description = 'Action in a manner that causes unrest and disrupts public order'},
-        [4] = {title = 'False Reporting', class = 'Misdemeanor', id = 'P.C. 6004', months = 10, fine = 750, color = 'green', description = 'The act of reporting a crime that did not happen'},
-        [5] = {title = 'Harassment', class = 'Misdemeanor', id = 'P.C. 6005', months = 10, fine = 500, color = 'orange', description = 'The repeated disruption or verbal attacks of another person'},
-        [6] = {title = 'Misdemeanor Obstruction of Justice', class = 'Misdemeanor', id = 'P.C. 6006', months = 10, fine = 500, color = 'green', description = 'Acting in a way that hinders the process of Justice or lawful investigations'},
-        [7] = {title = 'Felony Obstruction of Justice', class = 'Felony', id = 'P.C. 6007', months = 15, fine = 900, color = 'green', description = 'Acting in a way that hinders the process of Justice or lawful investigations while using violence'},
-        [8] = {title = 'Inciting a Riot', class = 'Felony', id = 'P.C. 6008', months = 25, fine = 1000, color = 'orange', description = 'Causing civil unrest in a manner to incite a group to cause harm to people or property'},
-        [9] = {title = 'Loitering on Government Properties', class = 'Infraction', id = 'P.C. 6009', months = 0, fine = 500, color = 'green', description = 'When someone is present in a government proper for an extended period of time'},
-        [10] = {title = 'Tampering', class = 'Misdemeanor', id = 'P.C. 6010', months = 10, fine = 500, color = 'green', description = 'When someone willfully, knowingly and indirectly interfering with key points of a lawful investigation'},
-        [11] = {title = 'Vehicle Tampering', class = 'Misdemeanor', id = 'P.C. 6011', months = 15, fine = 750, color = 'green', description = 'The willful and knowing interference the normal function of a vehicle'},
-        [12] = {title = 'Evidence Tampering', class = 'Felony', id = 'P.C. 6012', months = 20, fine = 1000, color = 'green', description = 'The willful and knowing interference with evidence from a lawful investigation'},
-        [13] = {title = 'Witness Tampering', class = 'Felony', id = 'P.C. 6013', months = 0, fine = 0, color = 'green', description = 'The willful and knowing coaching or coercing of a witness in a lawful investigation'},
-        [14] = {title = 'Failure to Provide Identification', class = 'Misdemeanor', id = 'P.C. 6014', months = 15, fine = 1500, color = 'green', description = 'The act of not presenting identification when lawfully required to do so'},
-        [15] = {title = 'Vigilantism', class = 'Felony', id = 'P.C. 6015', months = 30, fine = 1500, color = 'orange', description = 'The act of engaging in enforcing the law with legal authority to do so'},
-        [16] = {title = 'Unlawful Assembly', class = 'Misdemeanor', id = 'P.C. 6016', months = 10, fine = 750, color = 'orange', description = 'when a large group gathers in a location that requires prior approval to do so'},
-        [17] = {title = 'Government Corruption', class = 'Felony', id = 'P.C. 6017', months = 0, fine = 0, color = 'red', description = 'The act of using political position and power for self gain'},
-        [18] = {title = 'Stalking', class = 'Felony', id = 'P.C. 6018', months = 40, fine = 1500, color = 'orange', description = 'When one person monitors another without their consent'},
-        [19] = {title = 'Aiding and Abetting', class = 'Misdemeanor', id = 'P.C. 6019', months = 15, fine = 450, color = 'orange', description = 'To assist someone in committing or to encourage someone to commit a crime'},
-        [20] = {title = 'Harboring a Fugitive', class = 'Misdemeanor', id = 'P.C. 6020', months = 10, fine = 1000, color = 'green', description = 'When someone willingly hides another who is wanted by the authorities'},
+        [1] = { title = 'Bribery', class = 'Felony', id = 'P.C. 36.02', months = 120, fine = 50000, color = 'red', description = 'When a person offers, confers, or agrees to confer any benefit to another with the intent to influence that person in their official capacity.' },
+        [2] = { title = 'Tampering with Witness', class = 'Felony', id = 'P.C. 36.05', months = 60, fine = 15000, color = 'red', description = 'When a person intentionally or knowingly attempts to influence or intimidate a witness or potential witness in an official proceeding.' },
+        [3] = { title = 'Obstruction or Retaliation', class = 'Felony', id = 'P.C. 36.06', months = 60, fine = 15000, color = 'red', description = 'When a person intentionally or knowingly harms or threatens to harm another in retaliation for their status as a witness or for reporting a crime.' },
+        [4] = { title = 'Perjury', class = 'Felony', id = 'P.C. 37.02', months = 24, fine = 10000, color = 'red', description = 'When a person, under oath, intentionally or knowingly makes a false statement or swears to the truth of a false statement.' },
+        [5] = { title = 'Aggravated Perjury', class = 'Felony', id = 'P.C. 37.03', months = 60, fine = 15000, color = 'red', description = 'When a person commits perjury during an official proceeding and the statement is made regarding a material matter.' },
+        [6] = { title = 'Failure to Identify', class = 'Misdemeanor', id = 'P.C. 38.02', months = 12, fine = 5000, color = 'orange', description = 'When a person intentionally refuses to provide their name, residence address, or date of birth to a peace officer who has lawfully arrested them.' },
+        [7] = { title = 'Resisting Arrest, Search, or Transportation', class = 'Misdemeanor', id = 'P.C. 38.03', months = 12, fine = 5000, color = 'red', description = 'When a person intentionally prevents or obstructs a peace officer from effecting an arrest, search, or transportation of themselves or another.' },
+        [8] = { title = 'Evading Arrest or Detention', class = 'Misdemeanor', id = 'P.C. 38.04', months = 12, fine = 5000, color = 'orange', description = 'When a person intentionally flees from a peace officer attempting to lawfully arrest or detain them.' },
+        [9] = { title = 'Hindering Apprehension or Prosecution', class = 'Felony', id = 'P.C. 38.05', months = 60, fine = 15000, color = 'red', description = 'When a person conceals or assists another person who is wanted for arrest or prosecution, with the intent to hinder their apprehension.' },
+        [10] = { title = 'Escape', class = 'Felony', id = 'P.C. 38.06', months = 60, fine = 15000, color = 'red', description = 'When a person intentionally or knowingly escapes from custody or confinement after being lawfully arrested.' },
+        [11] = { title = 'Permitting or Facilitating Escape', class = 'Felony', id = 'P.C. 38.07', months = 60, fine = 15000, color = 'orange', description = 'When a person intentionally or knowingly permits or facilitates the escape of another person from custody.' },
+        [12] = { title = 'Implements for Escape', class = 'Felony', id = 'P.C. 38.09', months = 60, fine = 15000, color = 'red', description = 'When a person possesses or provides tools or implements with the intent to facilitate the escape of a person in custody.' },
+        [13] = { title = 'Prohibited Substances and Items in Correctional or Civil Commitment Facility', class = 'Felony', id = 'P.C. 38.11', months = 60, fine = 15000, color = 'red', description = 'When a person intentionally introduces or possesses a prohibited substance or item within a correctional or civil commitment facility.' },
+        [14] = { title = 'Improper Contact with Victim', class = 'Felony', id = 'P.C. 38.111', months = 60, fine = 15000, color = 'orange', description = 'When a person intentionally contacts a victim of a crime in violation of a court order or without the victim’s consent.' },
+        [15] = { title = 'Unauthorized Absence from Community Corrections Facility', class = 'Misdemeanor', id = 'P.C. 38.113', months = 12, fine = 5000, color = 'orange', description = 'When a person is absent from a community corrections facility, county correctional center, or assignment site without permission.' },
+        [16] = { title = 'Contraband in Correctional Facility', class = 'Felony', id = 'P.C. 38.114', months = 60, fine = 15000, color = 'red', description = 'When a person introduces or possesses contraband in a correctional facility.' },
+        [17] = { title = 'Operation of Unmanned Aircraft over Correctional Facility', class = 'Felony', id = 'P.C. 38.115', months = 60, fine = 15000, color = 'red', description = 'When a person intentionally operates an unmanned aircraft over a correctional or detention facility.' },
+        [18] = { title = 'Unauthorized Practice of Law', class = 'Felony', id = 'P.C. 38.123', months = 60, fine = 15000, color = 'red', description = 'When a person engages in the practice of law without a valid license or authorization to do so.' },
+        [19] = { title = 'Falsely Holding Oneself Out as a Lawyer', class = 'Felony', id = 'P.C. 38.122', months = 60, fine = 15000, color = 'red', description = 'When a person knowingly represents themselves as a licensed attorney without being licensed to practice law.' },
+        [20] = { title = 'Hindering Proceedings by Disorderly Conduct', class = 'Misdemeanor', id = 'P.C. 38.13', months = 12, fine = 5000, color = 'orange', description = 'When a person intentionally disrupts a proceeding in a court or other official meeting.' },
+        [21] = { title = 'Taking or Attempting to Take Weapon from Certain Officials', class = 'Felony', id = 'P.C. 38.14', months = 120, fine = 50000, color = 'red', description = 'When a person intentionally or knowingly takes or attempts to take a weapon from a peace officer, federal special investigator, or other specified officials.' },
+        [22] = { title = 'Interference with Public Duties', class = 'Misdemeanor', id = 'P.C. 38.15', months = 12, fine = 5000, color = 'orange', description = 'When a person intentionally or knowingly interferes with or obstructs a public servant in the performance of their official duties.' },
+        [23] = { title = 'Interference with Radio Frequency Licensed to Government Entity', class = 'Felony', id = 'P.C. 38.152', months = 60, fine = 15000, color = 'red', description = 'When a person intentionally interferes with a radio frequency that is licensed to a government entity.' },
+        [24] = { title = 'Failure to Report Felony', class = 'Misdemeanor', id = 'P.C. 38.171', months = 12, fine = 5000, color = 'orange', description = 'When a person fails to report a known felony to law enforcement.' },
+        [25] = { title = 'Abuse of Official Capacity', class = 'Felony', id = 'P.C. 39.02', months = 120, fine = 50000, color = 'red', description = 'When a public servant misuses their official position to obtain a benefit or harm another.' },
+        [26] = { title = 'Official Oppression', class = 'Misdemeanor', id = 'P.C. 39.03', months = 12, fine = 5000, color = 'orange', description = 'When a public servant intentionally denies or impedes another’s rights, privileges, or immunities under the law.' },
+        [27] = { title = 'Misuse of Official Information', class = 'Felony', id = 'P.C. 39.06', months = 120, fine = 50000, color = 'red', description = 'When a public servant or person with access to official information uses that information for personal gain or to harm another.' },
+
     },
+    -- Title 9. Offenss Against Public Order and Decency
     [7] = {
-        [1] = {title = 'Misdemeanor Possession of Marijuana', class = 'Misdemeanor', id = 'P.C. 7001', months = 5, fine = 250, color = 'green', description = 'The possession of a quantity of marijuana in the amount of less the 4 blunts'},
-        [2] = {title = 'Felony manufacturing of Marijuana', class = 'Felony', id = 'P.C. 7002', months = 15, fine = 1000, color = 'red', description = 'The possession of a quantity of marijuana that is from manufacturing'},
-        [3] = {title = 'Cultivation of Marijuana A', class = 'Misdemeanor', id = 'P.C. 7003', months = 10, fine = 750, color = 'green', description = 'The possession of 4 or less marijuana plants'},
-        [4] = {title = 'Cultivation of Marijuana B', class = 'Felony', id = 'P.C. 7004', months = 30, fine = 1500, color = 'orange', description = 'The possession of 5 or more marijuana plants'},
-        [5] = {title = 'Possession of Marijuana with Intent to Distribute', class = 'Felony', id = 'P.C. 7005', months = 30, fine = 3000, color = 'orange', description = 'The possession of a quantity of Marijuana for distribution'},
-        [6] = {title = 'Misdemeanor Possession of Cocaine', class = 'Misdemeanor', id = 'P.C. 7006', months = 7, fine = 500, color = 'green', description = 'The possession of cocaine in a small quantity usually for personal use'},
-        [7] = {title = 'Felony manufacturing Possession of Cocaine', class = 'Felony', id = 'P.C. 7007', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of cocaine that is from manufacturing'},
-        [8] = {title = 'Possession of Cocaine with Intent to Distribute', class = 'Felony', id = 'P.C. 7008', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of Cocaine for distribution'},
-        [9] = {title = 'Misdemeanor Possession of Methamphetamine', class = 'Misdemeanor', id = 'P.C. 7009', months = 7, fine = 500, color = 'green', description = 'The possession of methamphetamine in a small quantity usually for personal use'},
-        [10] = {title = 'Felony manufacturing Possession of Methamphetamine', class = 'Felony', id = 'P.C. 7010', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of methamphetamine that is from manufacturing'},
-        [11] = {title = 'Possession of Methamphetamine with Intent to Distribute', class = 'Felony', id = 'P.C. 7011', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of Methamphetamine for distribution'},
-        [12] = {title = 'Misdemeanor Possession of Oxy / Vicodin', class = 'Misdemeanor', id = 'P.C. 7012', months = 7, fine = 500, color = 'green', description = 'The possession of oxy / vicodin in a small quantity usually for personal use without prescription'},
-        [13] = {title = 'Felony manufacturing Possession of Oxy / Vicodin', class = 'Felony', id = 'P.C. 7013', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of oxy / vicodin that is from manufacturing'},
-        [14] = {title = 'Felony Possession of Oxy / Vicodin with Intent to Distribute', class = 'Felony', id = 'P.C. 7014', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of oxy / vicodin for distribution'},
-        [15] = {title = 'Misdemeanor Possession of Ecstasy', class = 'Misdemeanor', id = 'P.C. 7015', months = 7, fine = 500, color = 'green', description = 'The possession of ecstasy in a small quantity usually for personal use'},
-        [16] = {title = 'Felony manufacturing Possession of Ecstasy', class = 'Felony', id = 'P.C. 7016', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of ecstasy that is from manufacturing'},
-        [17] = {title = 'Possession of Ecstasy with Intent to Distribute', class = 'Felony', id = 'P.C. 7017', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of ecstasy for distribution'},
-        [18] = {title = 'Misdemeanor Possession of Opium', class = 'Misdemeanor', id = 'P.C. 7018', months = 7, fine = 500, color = 'green', description = 'The possession of opium in a small quantity usually for personal use'},
-        [19] = {title = 'Felony manufacturing Possession of Opium', class = 'Felony', id = 'P.C. 7019', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of opium that is from manufacturing'},
-        [20] = {title = 'Possession of Opium with Intent to Distribute', class = 'Felony', id = 'P.C. 7020', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of Opium for distribution'},
-        [21] = {title = 'Misdemeanor Possession of Adderall', class = 'Misdemeanor', id = 'P.C. 7021', months = 7, fine = 500, color = 'green', description = 'The possession of adderall in a small quantity usually for personal use without prescription'},
-        [22] = {title = 'Felony manufacturing Possession of Adderall', class = 'Felony', id = 'P.C. 7022', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of adderall that is from manufacturing'},
-        [23] = {title = 'Possession of Adderall with Intent to Distribute', class = 'Felony', id = 'P.C. 7023', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of Adderall for distribution'},
-        [24] = {title = 'Misdemeanor Possession of Xanax', class = 'Misdemeanor', id = 'P.C. 7024', months = 7, fine = 500, color = 'green', description = 'The possession of xanax in a small quantity usually for personal use without prescription'},
-        [25] = {title = 'Felony manufacturing Possession of Xanax', class = 'Felony', id = 'P.C. 7025', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of xanax that is from manufacturing'},
-        [26] = {title = 'Possession of Xanax with Intent to Distribute', class = 'Felony', id = 'P.C. 7026', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of Xanax for distribution'},
-        [27] = {title = 'Misdemeanor Possession of Shrooms', class = 'Misdemeanor', id = 'P.C. 7027', months = 7, fine = 500, color = 'green', description = 'The possession of shrooms in a small quantity usually for personal use'},
-        [28] = {title = 'Felony manufacturing Possession of Shrooms', class = 'Felony', id = 'P.C. 7028', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of shrooms that is from manufacturing'},
-        [29] = {title = 'Possession of Shrooms with Intent to Distribute', class = 'Felony', id = 'P.C. 7029', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of Shrooms for distribution'},
-        [30] = {title = 'Misdemeanor Possession of Lean', class = 'Misdemeanor', id = 'P.C. 7030', months = 7, fine = 500, color = 'green', description = 'The possession of lean in a small quantity usually for personal use'},
-        [31] = {title = 'Felony manufacturing Possession of Lean', class = 'Felony', id = 'P.C. 7031', months = 25, fine = 1500, color = 'red', description = 'The possession of a quantity of lean that is from manufacturing'},
-        [32] = {title = 'Possession of Lean with Intent to Distribute', class = 'Felony', id = 'P.C. 7032', months = 35, fine = 4500, color = 'orange', description = 'The possession of a quantity of lean for distribution'},
-        [33] = {title = 'Sale of a controlled substance', class = 'Misdemeanor', id = 'P.C. 7033', months = 10, fine = 1000, color = 'green', description = 'The sale of a substance that is controlled by law'},
-        [34] = {title = 'Drug Trafficking', class = 'Felony', id = 'P.C. 7034', months = 0, fine = 0, color = 'red', description = 'The large scale movement of illegal drugs'},
-        [35] = {title = 'Desecration of a Human Corpse', class = 'Felony', id = 'P.C. 7035', months = 20, fine = 1500, color = 'orange', description = 'When someone harms, disturbs or destroys the remains of another person'},
-        [36] = {title = 'Public Intoxication', class = 'Infraction', id = 'P.C. 7036', months = 0, fine = 500, color = 'green', description = 'When someone is intoxicated above legal limit in public'},
-        [37] = {title = 'Public Indecency', class = 'Misdemeanor', id = 'P.C. 7037', months = 10, fine = 750, color = 'green', description = 'The act of someone exposing themself in a way that infringes in public morals'},
+        [1] = { title = 'Disorderly Conduct', class = 'Misdemeanor', id = 'P.C. 42.01', months = 12, fine = 5000, color = 'orange', description = 'When a person intentionally or knowingly engages in conduct that is abusive, indecent, or offensive, and that is likely to incite an immediate breach of the peace.' },
+        [2] = { title = 'Riot', class = 'Misdemeanor', id = 'P.C. 42.02', months = 10, fine = 1000, color = 'orange', description = 'When a person knowingly participates in an assembly of seven or more persons resulting in conduct which creates an immediate danger of damage to property or injury to persons' },
+        [3] = { title = 'Obstructing Highway or Other Passageway', class = 'Misdemeanor', id = 'P.C. 42.03', months = 5, fine = 750, color = 'red', description = 'When a person intentionally, knowingly, or recklessly obstructs a highway, street, sidewalk, railway, waterway, or other passageway to which the public has access' },
+        [4] = { title = 'Disrupting Meeting or Procession', class = 'Misdemeanor', id = 'P.C. 42.05', months = 6, fine = 600, color = 'orange', description = 'When a person intentionally disrupts a lawful meeting, procession, or gathering by physical action or verbal utterance' },
+        [5] = { title = 'Funeral Service Disruptions', class = 'Misdemeanor', id = 'P.C. 42.055', months = 8, fine = 800, color = 'orange', description = 'When a person engages in picketing within 1,000 feet of a cemetery or funeral service during or within one hour before or after the service' },
+        [6] = { title = 'False Alarm or Report', class = 'Misdemeanor', id = 'P.C. 42.06', months = 9, fine = 900, color = 'red', description = 'When a person knowingly initiates, communicates, or circulates a report of a present, past, or future bombing, fire, offense, or other emergency that is false or baseless and that would ordinarily cause action by an official or volunteer agency' },
+        [7] = { title = 'False Report to Induce Emergency Response', class = 'Misdemeanor', id = 'P.C. 42.0601', months = 12, fine = 1200, color = 'orange', description = 'When a person knowingly makes a false report to law enforcement or emergency services with the intent to elicit an emergency response' },
+        [8] = { title = 'Silent or Abusive Calls to 9-1-1 Service', class = 'Misdemeanor', id = 'P.C. 42.061', months = 6, fine = 500, color = 'orange', description = 'When a person makes silent or abusive calls to a 9-1-1 service with the intent to harass, annoy, alarm, abuse, torment, or embarrass another' },
+        [9] = { title = 'Interference with Emergency Request for Assistance', class = 'Misdemeanor', id = 'P.C. 42.062', months = 6, fine = 600, color = 'red', description = 'When a person knowingly prevents or interferes with another individual’s ability to place an emergency call or request assistance in an emergency from a law enforcement agency, medical facility, or other emergency services' },
+        [10] = { title = 'Harassment', class = 'Misdemeanor', id = 'P.C. 42.07', months = 6, fine = 2000, color = 'orange', description = 'When a person, with intent to harass, annoy, alarm, abuse, torment, or embarrass another, initiates communication by telephone, in writing, or by electronic communication in a manner likely to harass, annoy, alarm, abuse, torment, embarrass, or offend another' },
+        [11] = { title = 'Stalking', class = 'Felony', id = 'P.C. 42.072', months = 15, fine = 5000, color = 'red', description = 'When a person, on more than one occasion and pursuant to the same scheme or course of conduct that is directed specifically at another person, knowingly engages in conduct that the actor knows or reasonably believes the other person will regard as threatening bodily injury or death for themselves or a member of their family or household, or that an offense will be committed against their property' },
+        [12] = { title = 'Abuse of Corpse', class = 'Misdemeanor', id = 'P.C. 42.08', months = 12, fine = 4000, color = 'red', description = 'When a person, without legal authority, knowingly disinters, disturbs, damages, dissects, in whole or in part, carries away, or treats in an offensive manner a human corpse' },
+        [13] = { title = 'Cruelty to Livestock Animals', class = 'Felony', id = 'P.C. 42.09', months = 15, fine = 5000, color = 'red', description = 'When a person intentionally or knowingly tortures, seriously overworks, fails to provide necessary food, care, or shelter, abandons unreasonably, transports or confines in a cruel manner, or kills a livestock animal without the owner’s effective consent' },
+        [14] = { title = 'Cruelty to Nonlivestock Animals', class = 'Felony', id = 'P.C. 42.092', months = 15, fine = 5000, color = 'red', description = 'When a person intentionally, knowingly, or recklessly tortures, kills, or causes serious bodily injury to a nonlivestock animal, or fails to provide necessary food, care, or shelter, or abandons unreasonably, transports or confines in a cruel manner, or seriously overworks a nonlivestock animal' },
+        [15] = { title = 'Discharge of Firearm in Certain Municipalities', class = 'Misdemeanor', id = 'P.C. 42.12', months = 12, fine = 4000, color = 'orange', description = 'When a person recklessly discharges a firearm inside the corporate limits of a municipality having a population of 100,000 or more' },
+        [16] = { title = 'Operation of Unmanned Aircraft over Airport or Military Installation', class = 'Misdemeanor', id = 'P.C. 42.15', months = 12, fine = 4000, color = 'red', description = 'When a person intentionally or knowingly operates an unmanned aircraft over an airport or military installation without authorization' },
+        [17] = { title = 'Prostitution', class = 'Misdemeanor', id = 'P.C. 43.02', months = 30, fine = 2000, color = 'orange', description = 'When a person knowingly offers to engage, agrees to engage, or engages in sexual conduct for a fee' },
+        [18] = { title = 'Solicitation of Prostitution', class = 'Felony', id = 'P.C. 43.021', months = 5, fine = 10000, color = 'red', description = 'When a person knowingly offers or agrees to pay a fee to another person for the purpose of engaging in sexual conduct with that person or another' },
+        [19] = { title = 'Promotion of Prostitution', class = 'Felony', id = 'P.C. 43.03', months = 5, fine = 10000, color = 'red', description = 'When a person knowingly receives money or other property pursuant to an agreement to participate in the proceeds of prostitution, or solicits another to engage in sexual conduct with another person for compensation' },
+        [20] = { title = 'Online Promotion of Prostitution', class = 'Felony', id = 'P.C. 43.031', months = 5, fine = 10000, color = 'red', description = 'When a person knowingly uses the internet or any other electronic means to promote the prostitution of another person' },
+
     },
+    -- Title 10. Offenses Against Public Health, Safety, and Morals
     [8] = {
-        [1] = {title = 'Criminal Possession of Weapon Class A', class = 'Felony', id = 'P.C. 8001', months = 10, fine = 500, color = 'green', description = 'Possession of a Class A firearm without licensing'},
-        [2] = {title = 'Criminal Possession of Weapon Class B', class = 'Felony', id = 'P.C. 8002', months = 15, fine = 1000, color = 'green', description = 'Possession of a Class B firearm without licensing'},
-        [3] = {title = 'Criminal Possession of Weapon Class C', class = 'Felony', id = 'P.C. 8003', months = 30, fine = 3500, color = 'green', description = 'Possession of a Class C firearm without licensing'},
-        [4] = {title = 'Criminal Possession of Weapon Class D', class = 'Felony', id = 'P.C. 8004', months = 25, fine = 1500, color = 'green', description = 'Possession of a Class D firearm without licensing'},
-        [5] = {title = 'Criminal Sale of Weapon Class A', class = 'Felony', id = 'P.C. 8005', months = 15, fine = 1000, color = 'orange', description = 'The act of selling a Class A firearm without licensing'},
-        [6] = {title = 'Criminal Sale of Weapon Class B', class = 'Felony', id = 'P.C. 8006', months = 20, fine = 2000, color = 'orange', description = 'The act of selling a Class B firearm without licensing'},
-        [7] = {title = 'Criminal Sale of Weapon Class C', class = 'Felony', id = 'P.C. 8007', months = 35, fine = 7000, color = 'orange', description = 'The act of selling a Class C firearm without licensing'},
-        [8] = {title = 'Criminal Sale of Weapon Class D', class = 'Felony', id = 'P.C. 8008', months = 30, fine = 3000, color = 'orange', description = 'The act of selling a Class D firearm without licensing'},
-        [9] = {title = 'Criminal Use of Weapon', class = 'Misdemeanor', id = 'P.C. 8009', months = 10, fine = 450, color = 'orange', description = 'Use of a weapon while in commission of a crime'},
-        [10] = {title = 'Possession of Illegal Firearm Modifications', class = 'Misdemeanor', id = 'P.C. 8010', months = 10, fine = 300, color = 'green', description = 'Being in possession of firearm modifications unlawfully'},
-        [11] = {title = 'Weapon Trafficking', class = 'Felony', id = 'P.C. 8011', months = 0, fine = 0, color = 'red', description = 'The transportation of a large amount of weapons for one point to another'},
-        [12] = {title = 'Brandishing a Weapon', class = 'Misdemeanor', id = 'P.C. 8012', months = 15, fine = 500, color = 'orange', description = 'The act of making a firearm purposely visible'},
-        [13] = {title = 'Insurrection', class = 'Felony', id = 'P.C. 8013', months = 0, fine = 0, color = 'red', description = 'Attempting to overthrow the government with violence'},
-        [14] = {title = 'Flying into Restricted Airspace', class = 'Felony', id = 'P.C. 8014', months = 20, fine = 1500, color = 'green', description = 'Piloting and aircraft into airspace that is governmentally controlled'},
-        [15] = {title = 'Jaywalking', class = 'Infraction', id = 'P.C. 8015', months = 0, fine = 150, color = 'green', description = 'crossing a roadway in a manner that is hazardous to motor vehicles'},
-        [16] = {title = 'Criminal Use of Explosives', class = 'Felony', id = 'P.C. 8016', months = 30, fine = 2500, color = 'orange', description = 'Use of explosives to committing a crime'},
+        [1] = { title = 'Unlawful Carrying Weapons', class = 'Misdemeanor', id = 'P.C. 46.02', months = 12, fine = 4000, color = 'orange', description = 'When a person intentionally, knowingly, or recklessly carries on or about their person a handgun, illegal knife, or club' },
+        [2] = { title = 'Places Weapons Prohibited', class = 'Felony', id = 'P.C. 46.03', months = 2, fine = 10000, color = 'red', description = 'When a person intentionally, knowingly, or recklessly possesses or goes with a firearm, illegal knife, club, or prohibited weapon in places such as schools, polling places, government courts, racetracks, airports, or within 1,000 feet of the premises of an execution' },
+        [3] = { title = 'Unlawful Carrying of Handgun by License Holder', class = 'Felony', id = 'P.C. 46.035', months = 2, fine = 10000, color = 'red', description = 'When a license holder intentionally, knowingly, or recklessly carries a handgun in places where the carrying of handguns is prohibited, such as schools, polling places, government courts, racetracks, airports, or while intoxicated' },
+        [4] = { title = 'Unlawful Possession of Firearm', class = 'Felony', id = 'P.C. 46.04', months = 2, fine = 10000, color = 'red', description = 'When a person who has been convicted of a felony possesses a firearm before the fifth anniversary of their release from confinement, parole, or community supervision, or at any location other than their residence after this period' },
+        [5] = { title = 'Unlawful Possession of Metal or Body Armor by Felon', class = 'Felony', id = 'P.C. 46.041', months = 2, fine = 10000, color = 'red', description = 'When a person who has been convicted of a felony possesses metal or body armor' },
+        [6] = { title = 'Prohibited Weapons', class = 'Felony', id = 'P.C. 46.05', months = 2, fine = 10000, color = 'red', description = 'When a person intentionally or knowingly possesses, manufactures, transports, repairs, or sells prohibited weapons such as explosive weapons, machine guns, short-barrel firearms, firearm silencers, armor-piercing ammunition, chemical dispensing devices, zip guns, or tire deflation devices' },
+        [7] = { title = 'Unlawful Transfer of Certain Weapons', class = 'Felony', id = 'P.C. 46.06', months = 2, fine = 10000, color = 'red', description = 'When a person knowingly sells, rents, leases, loans, or gives a handgun to any person knowing that the recipient intends to use it unlawfully' },
+        [8] = { title = 'Deadly Weapon in Penal Institution', class = 'Felony', id = 'P.C. 46.10', months = 3, fine = 10000, color = 'red', description = 'When a person intentionally, knowingly, or recklessly carries or possesses a deadly weapon in a penal institution' },
+        [9] = { title = 'Firearm Smuggling', class = 'Felony', id = 'P.C. 46.14', months = 3, fine = 10000, color = 'red', description = 'When a person knowingly engages in the business of transporting or transferring a firearm that the person knows was acquired in violation of the law' },
+        [10] = { title = 'Public Intoxication', class = 'Misdemeanor', id = 'P.C. 49.02', months = 0, fine = 500, color = 'orange', description = 'When a person appears in a public place while intoxicated to the degree that the person may endanger themselves or another' },
+        [11] = { title = 'Driving While Intoxicated', class = 'Misdemeanor', id = 'P.C. 49.04', months = 1, fine = 2000, color = 'orange', description = 'When a person is intoxicated while operating a motor vehicle in a public place' },
+        [12] = { title = 'Flying While Intoxicated', class = 'Misdemeanor', id = 'P.C. 49.05', months = 1, fine = 2000, color = 'orange', description = 'When a person is intoxicated while operating an aircraft' },
+        [13] = { title = 'Boating While Intoxicated', class = 'Misdemeanor', id = 'P.C. 49.06', months = 1, fine = 2000, color = 'orange', description = 'When a person is intoxicated while operating a watercraft' },
+        [14] = { title = 'Intoxication Assault', class = 'Felony', id = 'P.C. 49.07', months = 10, fine = 10000, color = 'red', description = 'When a person, by accident or mistake, causes serious bodily injury to another while operating a motor vehicle, aircraft, or watercraft while intoxicated' },
+        [15] = { title = 'Intoxication Manslaughter', class = 'Felony', id = 'P.C. 49.08', months = 20, fine = 10000, color = 'red', description = 'When a person, by accident or mistake, causes the death of another while operating a motor vehicle, aircraft, or watercraft while intoxicated' },
+        [16] = {
+            title = 'Unlawful Use of Fireworks',
+            class = 'Misdemeanor',
+            id = 'P.C. 50.02',
+            months = 6,       -- Assuming a 6-month maximum sentence; adjust if needed
+            fine = 1000,      -- Adjust the fine amount based on your discretion
+            color = 'orange', -- Chose a color; you can change this if you prefer
+            description =
+            'A person commits an offense if the person intentionally or knowingly uses fireworks in a manner that is unlawful under local ordinances or regulations.'
+        },
+
     },
+    -- Title 11. Organized Crime
     [9] = {
-        [1] = {title = 'Driving While Intoxicated', class = 'Misdemeanor', id = 'P.C. 9001', months = 5, fine = 300, color = 'green', description = 'Operating a motor vehicle while impaired by alcohol'},
-        [2] = {title = 'Evading', class = 'Misdemeanor', id = 'P.C. 9002', months = 5, fine = 400, color = 'green', description = 'Hiding or running from lawful detainment'},
-        [3] = {title = 'Reckless Evading', class = 'Felony', id = 'P.C. 9003', months = 10, fine = 800, color = 'orange', description = 'Recklessly disregarding safety and Hiding or running from lawful detainment while '},
-        [4] = {title = 'Failure to Yield to Emergency Vehicle', class = 'Infraction', id = 'P.C. 9004', months = 0, fine = 600, color = 'green', description = 'Not giving way to emergency vehicles'},
-        [5] = {title = 'Failure to Obey Traffic Control Device', class = 'Infraction', id = 'P.C. 9005', months = 0, fine = 150, color = 'green', description = 'Not following the safety devices of the roadway'},
-        [6] = {title = 'Nonfunctional Vehicle', class = 'Infraction', id = 'P.C. 9006', months = 0, fine = 75, color = 'green', description = 'Having a vehicle that is no longer functional in the roadway'},
-        [7] = {title = 'Negligent Driving', class = 'Infraction', id = 'P.C. 9007', months = 0, fine = 300, color = 'green', description = 'Driving in a manner as to unknowingly disregard safety'},
-        [8] = {title = 'Reckless Driving', class = 'Misdemeanor', id = 'P.C. 9008', months = 10, fine = 750, color = 'orange', description = 'Driving in a manner as to knowingly disregard safety'},
-        [9] = {title = 'Third Degree Speeding', class = 'Infraction', id = 'P.C. 9009', months = 0, fine = 225, color = 'green', description = 'Speeding 15 over the limit'},
-        [10] = {title = 'Second Degree Speeding', class = 'Infraction', id = 'P.C. 9010', months = 0, fine = 450, color = 'green', description = 'Speeding 35 over the limit'},
-        [11] = {title = 'First Degree Speeding', class = 'Infraction', id = 'P.C. 9011', months = 0, fine = 750, color = 'green', description = 'Speeding 50 over the limit'},
-        [12] = {title = 'Unlicensed Operation of Vehicle', class = 'Infraction', id = 'P.C. 9012', months = 0, fine = 500, color = 'green', description = 'The operation of a motor vehicle without proper licensing'},
-        [13] = {title = 'Illegal U-Turn', class = 'Infraction', id = 'P.C. 9013', months = 0, fine = 75, color = 'green', description = 'Performing a u-turn where it is prohibited'},
-        [14] = {title = 'Illegal Passing', class = 'Infraction', id = 'P.C. 9014', months = 0, fine = 300, color = 'green', description = 'Passing other motor vehicles in a prohibited manner'},
-        [15] = {title = 'Failure to Maintain Lane', class = 'Infraction', id = 'P.C. 9015', months = 0, fine = 300, color = 'green', description = 'Not staying in the correct lane with a motor vehicle'},
-        [16] = {title = 'Illegal Turn', class = 'Infraction', id = 'P.C. 9016', months = 0, fine = 150, color = 'green', description = 'Performing a turn where it is prohibited'},
-        [17] = {title = 'Failure to Stop', class = 'Infraction', id = 'P.C. 9017', months = 0, fine = 600, color = 'green', description = 'Not stopping for a lawful stop or traffic device'},
-        [18] = {title = 'Unauthorized Parking', class = 'Infraction', id = 'P.C. 9018', months = 0, fine = 300, color = 'green', description = 'Parking a vehicle in a location that requires approval with any'},
-        [19] = {title = 'Hit and Run', class = 'Misdemeanor', id = 'P.C. 9019', months = 10, fine = 500, color = 'green', description = 'Striking another person or vehicle and fleeing the location'},
-        [20] = {title = 'Driving without Headlights or Signals', class = 'Infraction', id = 'P.C. 9020', months = 0, fine = 300, color = 'green', description = 'Operating a vehicle with no functional lights'},
-        [21] = {title = 'Street Racing', class = 'Felony', id = 'P.C. 9021', months = 15, fine = 1500, color = 'green', description = 'Operating motorvehicles in a contest'},
-        [22] = {title = 'Piloting without Proper Licensing', class = 'Felony', id = 'P.C. 9022', months = 20, fine = 1500, color = 'orange', description = 'Failure to be in possession of valid licensing when operating an aircraft'},
-        [23] = {title = 'Unlawful Use of a Motor Vehicle', class = 'Misdemeanor', id = 'P.C. 9023', months = 10, fine = 750, color = 'green', description = 'The use of a motor vehicle without a lawful reason'},
+        [1] = {
+            title = 'Engaging in Organized Criminal Activity',
+            class = 'Felony',
+            id = 'P.C. 71.02',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if, with the intent to establish, maintain, or participate in a criminal street gang, the person engages in organized criminal activity, including the commission of any felony or conspiracy to commit any felony.'
+        },
+        [2] = {
+            title = 'Violation of Court Order Enjoining Organized Criminal Activity',
+            class = 'Felony',
+            id = 'P.C. 71.021',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person violates a court order issued under this section that enjoins or prohibits the person from engaging in organized criminal activity.'
+        },
+        [3] = {
+            title =
+            'Coercing, Inducing, or Soliciting Membership in a Criminal Street Gang or Foreign Terrorist Organization',
+            class = 'Felony',
+            id = 'P.C. 71.022',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person coerces, induces, or solicits another person to become a member of a criminal street gang or foreign terrorist organization through threat or use of force, or other unlawful means.'
+        },
+        [4] = {
+            title = 'Directing Activities of Criminal Street Gangs or Foreign Terrorist Organizations',
+            class = 'Felony',
+            id = 'P.C. 71.023',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person intentionally or knowingly directs, organizes, or supervises the activities of a criminal street gang or foreign terrorist organization.'
+        },
+        [5] = {
+            title = 'Use of Proceeds Derived from Racketeering or Unlawful Debt Collection',
+            class = 'Felony',
+            id = 'P.C. 72.02',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person knowingly uses, invests, or profits from proceeds derived from racketeering or unlawful debt collection activities.'
+        },
+        [6] = {
+            title =
+            'Acquisition of Interest in Property or Control of Enterprise Through Racketeering or Unlawful Debt Collection',
+            class = 'Felony',
+            id = 'P.C. 72.03',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person knowingly acquires or maintains an interest in or control of any enterprise or property through racketeering or unlawful debt collection.'
+        },
+        [7] = {
+            title = 'Participation in Enterprise Through Racketeering or Unlawful Debt Collection',
+            class = 'Felony',
+            id = 'P.C. 72.04',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person participates in an enterprise through racketeering or unlawful debt collection, including being part of a pattern of racketeering activity.'
+        },
     },
+    -- Title 12. Terrorism
     [10] = {
-        [1] = {title = 'Hunting in Restricted Areas', class = 'Infraction', id = 'P.C. 10001', months = 0, fine = 450, color = 'green', description = 'Harvesting game in areas where it is prohibited to do so'},
-        [2] = {title = 'Unlicensed Hunting', class = 'Infraction', id = 'P.C. 10002', months = 0, fine = 450, color = 'green', description = 'Harvesting game without proper licensing'},
-        [3] = {title = 'Animal Cruelty', class = 'Misdemeanor', id = 'P.C. 10003', months = 10, fine = 450, color = 'green', description = 'The act of abusing an animal knowingly or not'},
-        [4] = {title = 'Hunting with a Non-Hunting Weapon', class = 'Misdemeanor', id = 'P.C. 10004', months = 10, fine = 750, color = 'green', description = 'To use a weapon not lawfully stated or manufactured to be used for the harvesting of wild game'},
-        [5] = {title = 'Hunting outside of hunting hours', class = 'Infraction', id = 'P.C. 10005', months = 0, fine = 750, color = 'green', description = 'Harvesting animals outside of specified time to do so'},
-        [6] = {title = 'Overhunting', class = 'Misdemeanor', id = 'P.C. 10006', months = 10, fine = 1000, color = 'green', description = 'Taking more than legally specified amount of game'},
-        [7] = {title = 'Poaching', class = 'Felony', id = 'P.C. 10007', months = 20, fine = 1250, color = 'red', description = 'Harvesting an animal that is listed as legally non-harvestable'},
-    }
+        [1] = {
+            title = 'Terrorism',
+            class = 'Felony',
+            id = 'P.C. 76.02',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person, with intent to intimidate or coerce a civilian population, influences the policy of a government by intimidation or coercion, or affects the conduct of a government by mass destruction, assassination, or kidnapping.'
+        },
+        [2] = {
+            title = 'Aiding in Commission of Terrorism',
+            class = 'Felony',
+            id = 'P.C. 76.03',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person aids, abets, or encourages another in the commission of an act of terrorism or conspires to commit terrorism.'
+        },
+        [3] = {
+            title = 'Hindering Prosecution of Terrorism',
+            class = 'Felony',
+            id = 'P.C. 76.04',
+            months = 120,  -- Maximum sentence of 120 months
+            fine = 50000,  -- Maximum fine
+            color = 'red', -- Chose red for severity
+            description =
+            'A person commits an offense if the person knowingly conceals, alters, or destroys evidence with the intent to hinder the apprehension, prosecution, or conviction of a person involved in terrorism.'
+        },
+    },
+    -- Traffic Code
+    [11] = {
+        [1] = { title = 'Driving While Intoxicated', class = 'Felony', id = 'T.C. 9001', months = 120, fine = 20000, color = 'red', description = 'Operating a motor vehicle while impaired by alcohol.' },
+        [2] = { title = 'Evading Arrest or Detention', class = 'Misdemeanor', id = 'T.C. 9002', months = 10, fine = 400, color = 'orange', description = 'Hiding or running from lawful detention by a peace officer.' },
+        [3] = { title = 'Reckless Evading', class = 'Felony', id = 'T.C. 9003', months = 10, fine = 800, color = 'red', description = 'Recklessly disregarding safety while evading law enforcement.' },
+        [4] = { title = 'Failure to Yield to Emergency Vehicle', class = 'Infraction', id = 'T.C. 9004', months = 0, fine = 600, color = 'green', description = 'Not yielding the right-of-way to emergency vehicles.' },
+        [5] = { title = 'Failure to Obey Traffic Control Device', class = 'Infraction', id = 'T.C. 9005', months = 0, fine = 150, color = 'green', description = 'Failing to follow traffic control devices on roadways.' },
+        [6] = { title = 'Nonfunctional Vehicle', class = 'Infraction', id = 'T.C. 9006', months = 0, fine = 75, color = 'green', description = 'Operating a vehicle that is not functional on the roadway.' },
+        [7] = { title = 'Negligent Driving', class = 'Misdemeanor', id = 'T.C. 9007', months = 0, fine = 300, color = 'orange', description = 'Driving in a manner that disregards safety.' },
+        [8] = { title = 'Reckless Driving', class = 'Misdemeanor', id = 'T.C. 9008', months = 10, fine = 750, color = 'orange', description = 'Driving in a manner that knowingly disregards safety.' },
+        [9] = { title = 'Third Degree Speeding', class = 'Infraction', id = 'T.C. 9009', months = 0, fine = 225, color = 'green', description = 'Speeding 15 mph over the limit.' },
+        [10] = { title = 'Second Degree Speeding', class = 'Infraction', id = 'T.C. 9010', months = 0, fine = 450, color = 'green', description = 'Speeding 35 mph over the limit.' },
+        [11] = { title = 'First Degree Speeding', class = 'Infraction', id = 'T.C. 9011', months = 0, fine = 750, color = 'green', description = 'Speeding 50 mph over the limit.' },
+        [12] = { title = 'Unlicensed Operation of Vehicle', class = 'Misdemeanor', id = 'T.C. 9012', months = 0, fine = 500, color = 'orange', description = 'Operating a motor vehicle without a valid driver’s license.' },
+        [13] = { title = 'Illegal U-Turn', class = 'Infraction', id = 'T.C. 9013', months = 0, fine = 75, color = 'green', description = 'Performing a U-turn where prohibited.' },
+        [14] = { title = 'Illegal Passing', class = 'Infraction', id = 'T.C. 9014', months = 0, fine = 300, color = 'green', description = 'Passing another vehicle in a prohibited manner.' },
+        [15] = { title = 'Failure to Maintain Lane', class = 'Infraction', id = 'T.C. 9015', months = 0, fine = 300, color = 'green', description = 'Failing to stay in the correct lane.' },
+        [16] = { title = 'Illegal Turn', class = 'Infraction', id = 'T.C. 9016', months = 0, fine = 150, color = 'green', description = 'Making a turn where prohibited.' },
+        [17] = { title = 'Failure to Stop', class = 'Misdemeanor', id = 'T.C. 9017', months = 0, fine = 600, color = 'orange', description = 'Failing to stop for a lawful traffic signal or sign.' },
+        [18] = { title = 'Unauthorized Parking', class = 'Infraction', id = 'T.C. 9018', months = 0, fine = 300, color = 'green', description = 'Parking in a location requiring permission.' },
+        [19] = { title = 'Hit and Run', class = 'Misdemeanor', id = 'T.C. 9019', months = 10, fine = 500, color = 'orange', description = 'Leaving the scene after striking another vehicle or person.' },
+        [20] = { title = 'Driving without Headlights or Signals', class = 'Infraction', id = 'T.C. 9020', months = 0, fine = 300, color = 'green', description = 'Operating a vehicle without functional lights or signals.' },
+        [21] = { title = 'Street Racing', class = 'Felony', id = 'T.C. 9021', months = 15, fine = 1500, color = 'red', description = 'Engaging in unauthorized motor vehicle racing.' },
+        [22] = { title = 'Piloting without Proper Licensing', class = 'Felony', id = 'T.C. 9022', months = 20, fine = 1500, color = 'orange', description = 'Operating an aircraft without a valid pilot’s license.' },
+        [23] = { title = 'Unlawful Use of a Motor Vehicle', class = 'Misdemeanor', id = 'T.C. 9023', months = 10, fine = 750, color = 'orange', description = 'Using a motor vehicle without lawful authority.' },
+    },
+
 }
 
 Config.AllowedJobs = {}
@@ -789,13 +877,13 @@ Config.ClassList = {
 }
 
 function GetJobType(job)
-	if Config.PoliceJobs[job] then
-		return 'police'
-	elseif Config.AmbulanceJobs[job] then
-		return 'ambulance'
-	elseif Config.DojJobs[job] then
-		return 'doj'
-	else
-		return nil
-	end
+    if Config.PoliceJobs[job] then
+        return 'police'
+    elseif Config.AmbulanceJobs[job] then
+        return 'ambulance'
+    elseif Config.DojJobs[job] then
+        return 'doj'
+    else
+        return nil
+    end
 end
